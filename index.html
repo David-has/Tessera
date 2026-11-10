@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Tessera – free 3D creation suite</title>
+    <meta name="description" content="Tessera is a free, open-source 3D app for modeling, sculpting, animation and rendering.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="logo" href="#top">
+          <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+            <path d="M13 2l10 5.5v11L13 24 3 18.500v-11z" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M13 13l10-5.500M13 13v11M13 13L3 7.500" fill="none" stroke="var(--accent)" stroke-width="2"/>
+          </svg>
+          Tessera
+        </a>
+        <nav aria-label="Main">
+          <a href="#features">Features</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#script">Scripting</a>
+          <a href="#download">Download</a>
+        </nav>
+        <button class="tg" id="tg" type="button" aria-label="Change colour theme">Light</button>
+        <a class="btn sm" href="#download">Download</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="wrap hero">
+        <div>
+          <h1>Make anything that has a shape.</h1>
+          <p class="lead">Tessera is a free, open-source 3D app for modeling, sculpting, animation and rendering. One download, no subscription, no limits.</p>
+          <div class="cta">
+            <a class="btn lg" href="#download" data-dl>Download for <span data-os>Windows</span></a>
+            <a class="btn ghost lg" href="#features">Explore features</a>
+          </div>
+          <p class="fine">Version 1.0 · 142 MB · Windows, macOS and Linux</p>
+          <div class="chips">
+            <span>OBJ</span>
+            <span>FBX</span>
+            <span>glTF</span>
+            <span>USD</span>
+            <span>STL</span>
+          </div>
+        </div>
+        <div id="stage">
+          <canvas id="gl" aria-label="Interactive 3D robotic arm that follows your cursor"></canvas>
+          <div class="hud tl">Viewport · Perspective</div>
+          <div class="hud tr">Arm.001 · 2,418 faces</div>
+          <div class="hud bl">Move your cursor to guide the arm</div>
+          <div class="hud br">
+            Shoulder <b id="hs">0°</b><br>
+            Elbow <b id="he">0°</b><br>
+            Yaw <b id="hy">0°</b>
+          </div>
+        </div>
+      </div>
+
+      <section class="alt" id="features">
+        <div class="wrap">
+          <h2>Everything you need, in one app.</h2>
+          <p class="sub">From first sketch to final frame, without switching tools.</p>
+          <div class="bento">
+            <div class="fc w">
+              <div>
+                <svg class="ic" viewBox="0 0 24 24">
+                  <path d="M12 3l8 4.500v9L12 21l-8-4.500v-9zM12 12l8-4.500M12 12v9M12 12L4 7.500"/>
+                </svg>
+                <h3>Modeling</h3>
+                <p>Smooth, non-destructive modifiers. Drag the slider to see how a simple shape turns into a smooth one.</p>
+              </div>
+              <div>
+                <svg id="sub" viewBox="0 0 300 300" role="img" aria-label="Subdivision demo"></svg>
+                <input id="lv" type="range" min="0" max="5" value="2" aria-label="Subdivision level">
+                <div class="lvt" id="lvt"></div>
+              </div>
+            </div>
+            <div class="fc">
+              <svg class="ic" viewBox="0 0 24 24">
+                <path d="M4 18c4-1 3-8 8-8s3 7 8 6"/>
+                <path d="M4 21h16"/>
+              </svg>
+              <h3>Sculpting</h3>
+              <p>Brushes that respond to pressure, with dynamic detail that adds geometry only where you need it.</p>
+            </div>
+            <div class="fc">
+              <svg class="ic" viewBox="0 0 24 24">
+                <path d="M5 4v16l14-8z"/>
+              </svg>
+              <h3>Animation</h3>
+              <p>Rigging, keyframes, a graph editor and physics. Everything is on one timeline.</p>
+            </div>
+            <div class="fc">
+              <svg class="ic" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+              </svg>
+              <h3>Rendering</h3>
+              <p>A real-time viewport for speed and a path tracer for the final image.</p>
+            </div>
+            <div class="fc">
+              <svg class="ic" viewBox="0 0 24 24">
+                <path d="M4 6h5v4H4zM15 14h5v4h-5zM9 8h3a3 3 0 013 3v3"/>
+              </svg>
+              <h3>Node-based materials</h3>
+              <p>Build any surface by connecting nodes, and reuse your setups across projects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="wrap">
+          <h2>One workflow, four stages.</h2>
+          <div class="tabs" id="tabs" role="tablist" aria-label="Workflow stages"></div>
+          <div class="pn" id="pn"></div>
+        </div>
+      </section>
+
+      <section class="alt" id="script">
+        <div class="wrap code">
+          <div>
+            <h2>Script anything.</h2>
+            <p class="sub">Every tool is available from Python, so you can automate the boring parts and build your own add-ons.</p>
+          </div>
+          <div class="term">
+            <i>script.py</i>
+            <pre id="term" aria-label="Python scripting example"></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="download">
+        <div class="wrap">
+          <h2>Free to download. Free to keep.</h2>
+          <p class="sub">Tessera is open source and has no account, trial or watermark.</p>
+          <div class="dl">
+            <div class="os" data-n="Windows">
+              <h3>Windows</h3>
+              <small>Windows 10 or later · 142 MB</small>
+              <a class="btn" href="#download" data-dl>Download .exe</a>
+            </div>
+            <div class="os" data-n="macOS">
+              <h3>macOS</h3>
+              <small>macOS 12 or later · 156 MB</small>
+              <a class="btn" href="#download" data-dl>Download .dmg</a>
+            </div>
+            <div class="os" data-n="Linux">
+              <h3>Linux</h3>
+              <small>64-bit, any recent distro · 138 MB</small>
+              <a class="btn" href="#download" data-dl>Download .tar.xz</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="alt">
+        <div class="wrap">
+          <h2>Questions.</h2>
+          <div style="margin-top: 28px">
+            <details>
+              <summary>Is Tessera really free?</summary>
+              <p>Yes. It’s open source under a free license. There are no paid tiers and no watermarks.</p>
+            </details>
+            <details>
+              <summary>What do I need to run it?</summary>
+              <p>A computer from the last eight years with 8 GB of memory and a graphics card that supports OpenGL 4.3.</p>
+            </details>
+            <details>
+              <summary>Can I use my work commercially?</summary>
+              <p>Yes. Everything you make belongs to you, including renders, models and animations.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <div class="final">
+        <div class="wrap">
+          <h2>Your next idea has a shape.</h2>
+          <a class="btn lg" href="#download" data-dl>Download for <span data-os>Windows</span></a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© <span id="yr"></span> Tessera. A fictional app, created as a design example.</span>
+        <span>Made in the open.</span>
+      </div>
+    </footer>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
